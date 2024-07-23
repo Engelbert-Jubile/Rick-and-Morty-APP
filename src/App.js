@@ -1,15 +1,18 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import CharactersPage from './pages/CharactersPage';
-import CharacterDetailPage from './pages/CharacterDetailPage';
-import LocationsPage from './pages/LocationsPage';
+import Navbar from './components/Navbar';
+import CharactersList from './pages/CharactersList';
+import CharacterDetail from './pages/CharacterDetail';
+import CharactersByLocation from './pages/CharactersByLocation';
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
-        <Route path="/" exact component={CharactersPage} />
-        <Route path="/character/:id" component={CharacterDetailPage} />
-        <Route path="/locations" component={LocationsPage} />
+        <Route exact path="/" component={CharactersList} />
+        <Route path="/character/:id" component={CharacterDetail} />
+        <Route path="/locations" component={CharactersByLocation} />
       </Routes>
     </Router>
   );
